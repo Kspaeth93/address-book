@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+
+<body>
+    <div id="test-2">
+        <contact v-for="contact in contacts" v-bind:contact="contact" v-bind:key="contact.id"></contact>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/script.js"></script>
+
+</html>
