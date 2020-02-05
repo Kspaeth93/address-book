@@ -1,0 +1,62 @@
+body {
+    background-color: #121212;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff
+}
+
+.modal {
+    background-color: #262626;
+}
+
+.title-text {
+    margin: 15px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.form-input {
+    background-color: #121212;
+    font-size: 20px;
+    border-color: #333333;
+    border-radius: 10px;
+    color: #bb86fc;
+}
+
+.input-disabled {
+    color: #811ff9;
+    background-color: #333333;
+    border-color: #262626;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.save-button {
+    background-color: #bb86fc;
+    color: #000000;
+    border-radius: 20px;
+    width: 180px;
+    height: 45px;
+    margin: 15px;
+    font-size: 25px;
+    border-color: #333333;
+}
+
+.save-button:hover {
+    background-color: #9d51fb;
+}
+
+.cancel-button {
+    background-color: #03dac5;
+    color: #000000;
+    border-radius: 20px;
+    width: 180px;
+    height: 45px;
+    margin: 15px;
+    font-size: 25px;
+    border-color: #333333;
+}
+
+.cancel-button:hover {
+    background-color: #029788;
+}
