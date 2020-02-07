@@ -8,18 +8,29 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/settings.css" />
 </head>
 
 <body>
     <div id="app">
-        <navbar></navbar>
-        <login></login>
+        <input v-on:click="contacts" type="button" value="contacts" />
+        <input v-on:click="login" type="button" value="login" />
+        <input v-on:click="mContactDetails" type="button" value="m-contacts-details" />
+        <input v-on:click="mContactList" type="button" value="m-contacts-list" />
+        <input v-on:click="settings" type="button" value="settings" />
+        <component ref="currentView" v-bind:is="currentView"></component>
     </div>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/navbar.js"></script>
-<script src="js/login.js"></script>
+<script src="components/navbar.js"></script>
+<script src="components/login-modal.js"></script>
+<script src="components/settings-modal.js"></script>
+<script src="views/contacts.js"></script>
+<script src="views/login.js"></script>
+<script src="views/m-contacts-details.js"></script>
+<script src="views/m-contacts-list.js"></script>
+<script src="views/settings.js"></script>
 <script src="app.js"></script>
 
 </html>
