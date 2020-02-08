@@ -30,6 +30,7 @@ body {
     padding: 15px;
 }
 
+/* Static on all displays */
 .col-1 {
     width: 8.33%;
 }

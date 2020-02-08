@@ -23,7 +23,8 @@ Vue.component('settings-modal', {
                 '                   type="button"' +
                 '                   value="Save Changes"' +
                 '                   class="save-button" />' +
-                '            <input type="button"' +
+                '            <input v-on:click="onCancelClicked"' +
+                '                   type="button"' +
                 '                   value="Cancel"' +
                 '                   class="cancel-button" />' +
                 '        </form>' +
@@ -47,6 +48,10 @@ Vue.component('settings-modal', {
             }
 
             if (valid) this.$root.username = this.newUsername;
+        },
+
+        onCancelClicked: function () {
+            this.$root.setView('contacts');
         }
     }
 });

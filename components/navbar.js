@@ -1,13 +1,11 @@
 Vue.component('navbar', {
     template:   '<div class="row">' +
-                '    <div class="col-6 navbar">' +
+                '    <div class="col-12 navbar">' +
                 '        <input v-show="showUsername()"' +
                 '               v-bind:value="username"' +
                 '               class="button username-button"' +
                 '               type="button"' +
                 '               disabled="true" />' +
-                '    </div>' +
-                '    <div class="col-6 navbar">' +
                 '        <input v-show="showLogoutButton()"' +
                 '               v-on:click="onLogoutClicked"' +
                 '               type="button"' +

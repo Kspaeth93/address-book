@@ -1,7 +1,7 @@
 Vue.component('login-modal', {
     template:   '<div class="row horizontal-align">' +
                 '    <div class="col-lg-4 col-md-6 col-sm-12 modal">' +
-                '        <div class="title-text">Address Book</div>' +
+                '        <div class="title-text">Contacts</div>' +
                 '        <form>' +
                 '            <div>' +
                 '                Username<br>' +
@@ -52,7 +52,7 @@ Vue.component('login-modal', {
                 password.style.border = "none";
             }
 
-            if (valid) this.$root.handleLogin(this.username);
+            if (valid) this.$root.processLogin(this.username);
         }
     }
 });

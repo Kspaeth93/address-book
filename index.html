@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address Book</title>
+    <title>Contacts</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/login.css" />
@@ -13,11 +13,6 @@
 
 <body>
     <div id="app">
-        <input v-on:click="contacts" type="button" value="contacts" />
-        <input v-on:click="login" type="button" value="login" />
-        <input v-on:click="mContactDetails" type="button" value="m-contacts-details" />
-        <input v-on:click="mContactList" type="button" value="m-contacts-list" />
-        <input v-on:click="settings" type="button" value="settings" />
         <component ref="currentView" v-bind:is="currentView"></component>
     </div>
 </body>
