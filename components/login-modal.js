@@ -1,28 +1,28 @@
 Vue.component('login-modal', {
     template:   '<div class="row horizontal-align">' +
-                '    <div class="col-lg-4 col-md-6 col-sm-12 modal">' +
-                '        <div class="title-text">Contacts</div>' +
-                '        <form>' +
-                '            <div>' +
+                '    <div class="col-lg-4 col-md-6 col-sm-12 ui-medium shadow">' +
+                '        <div class="text text-light text-large">Contacts</div>' +
+                '        <form class="text text-light text-medium">' +
+                '            <div class="spacing">' +
                 '                Username<br>' +
                 '                <input v-model="username"' +
                 '                       id="username"' +
                 '                       type="text"' +
                 '                       name="username"' +
-                '                       class="form-input" />' +
+                '                       class="input" />' +
                 '            </div>' +
-                '            <div>' +
+                '            <div class="spacing">' +
                 '                Password<br>' +
                 '                <input v-model="password"' +
                 '                       id="password"' +
                 '                       type="password"' +
                 '                       name="password"' +
-                '                       class="form-input" />' +
+                '                       class="input" />' +
                 '            </div>' +
                 '            <input v-on:click="onLoginClicked"' +
                 '                   type="button"' +
                 '                   value="Login"' +
-                '                   class="login-button" />' +
+                '                   class="button large-button primary-button spacing" />' +
                 '        </form>' +
                 '    </div>' +
                 '</div>',

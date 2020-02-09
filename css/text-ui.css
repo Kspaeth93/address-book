@@ -1,0 +1,77 @@
+/* Text */
+.text {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-light {
+    color: #ffffff;
+}
+
+.text-dark {
+    color: #000000;
+}
+
+.text-small {
+    font-size: 15px;
+}
+
+.text-medium {
+    font-size: 25px;
+}
+
+.text-large {
+    font-size: 50px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* Other */
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.horizontal-align {
+    display: flex;
+    justify-content: center;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+/* UI */
+body {
+    background-color: #121212;
+}
+
+.ui-light {
+    background-color: #121212;
+}
+
+.ui-medium {
+    background-color: #262626;
+}
+
+.ui-dark {
+    background-color: #333333;
+}
+
+.shadow {
+    border: 1px solid #333333;
+}
+
+.spacing {
+    margin: 10px;
+}
