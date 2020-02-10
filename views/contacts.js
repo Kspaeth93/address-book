@@ -1,25 +1,18 @@
 Vue.component('contacts', {
-    template:   '<div>'+
-                '    <navbar v-bind:username="$root.username"></navbar>' +
-                '    <contact-toolbar></contact-toolbar>' +
-                '    <div class="row">' +
-                '        <div class="col-4">' +
-                '            <contact-list></contact-list>' +
-                '        </div>' +
-                '        <div class="col-8">' +
-                '            <contact-detail class="ui-medium light-shadow"' +
-                '                            v-bind:name="getContactName()"' +
-                '                            v-bind:address="getContactAddress()"' +
-                '                            v-bind:phoneNumber1="getContactPhone1()"' +
-                '                            v-bind:phoneNumber2="getContactPhone2()"' +
-                '                            v-bind:phoneNumber3="getContactPhone3()"' +
-                '                            v-bind:phoneNumberType1="getContactPhoneType1()"' +
-                '                            v-bind:phoneNumberType2="getContactPhoneType2()"' +
-                '                            v-bind:phoneNumberType3="getContactPhoneType3()">' +
-                '            </contact-detail>' +
-                '        </div>' +
-                '    </div>' +
-                '</div>',
+    template:   `<div>
+                    <navbar v-bind:username="$root.username"></navbar>
+                    <div class="row">
+                        <div class="col-12 ui-light light-shadow">
+                            <contact-toolbar></contact-toolbar>
+                        </div>
+                        <div class="col-4 ui-medium light-shadow">
+                            <contact-list></contact-list>
+                        </div>
+                        <div class="col-8 ui-medium light-shadow">
+                            <component ref="contactsView" v-bind:is="$root.contactsView"></component>
+                        </div>
+                    </div>
+                </div>`,
     methods: {
         getContactName: function () {
             return this.$root.selectedContact.name;

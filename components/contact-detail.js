@@ -1,35 +1,71 @@
 Vue.component('contact-detail', {
-    template:  `<div class="text text-light">
-                    <div class="text-large spacing">
-                        {{ getName() }}
+    template:  `<div>
+                    <div v-show="!$root.isContactSelected()"
+                            class="text text-light">
+                        <div class="text-large spacing">
+                            {{ getName() }}
+                        </div>
+                        <div class="text-medium italic spacing">
+                            {{ getAddress() }}
+                        </div>
+                        <div class="text-medium spacing">
+                            <input  v-bind:value="getPhoneNumber1Type()"
+                                    :class="getTypeClass(getPhoneNumber1Type())"
+                                    type="button"
+                                    disabled />
+                            {{ getPhoneNumber1() }}<br>
+                            <input  v-bind:value="getPhoneNumber2Type()"
+                                    :class="getTypeClass(getPhoneNumber2Type())"
+                                    type="button"
+                                    disabled />
+                            {{ getPhoneNumber2() }}<br>
+                        </div>
+                        <div class="spacing">
+                            <input  v-on:click="onEditClicked"
+                                    type="button"
+                                    value="Edit"
+                                    class="button large-button primary-button" />
+                        </div>
+                        <div class="spacing">
+                            <input  v-on:click="onDeleteClicked"
+                                    type="button"
+                                    value="Delete"
+                                    class="button large-button error-button" />
+                        </div>
+                        <div class="spacing">
+                            <input  v-on:click="onBackClicked"
+                                    type="button"
+                                    value="Back"
+                                    class="button large-button secondary-button" />
+                        </div>
                     </div>
-                    <div class="text-medium italic spacing">
-                        {{ getAddress() }}
-                    </div>
-                    <div class="text-medium spacing">
-                        [{{ getPhoneNumber1Type() }}] {{ getPhoneNumber1() }}<br>
-                        [{{ getPhoneNumber2Type() }}] {{ getPhoneNumber2() }}<br>
-                    </div>
-                    <div class="spacing">
-                        <input  v-on:click="onEditClicked"
-                                type="button"
-                                value="Edit"
-                                class="button large-button primary-button" />
-                    </div>
-                    <div class="spacing">
-                        <input  v-on:click="onDeleteClicked"
-                                type="button"
-                                value="Delete"
-                                class="button large-button error-button" />
-                    </div>
-                    <div class="spacing">
-                        <input  v-on:click="onBackClicked"
-                                type="button"
-                                value="Back"
-                                class="button large-button secondary-button" />
+                    <div    v-show="$root.isContactSelected()"
+                            class="text text-light text-large">
+                        No Contact Selected :(
                     </div>
                 </div>`,
     methods: {
+        getTypeClass(phoneNumberType) {
+            var typeClass = 'button small-button disabled-button ';
+            
+            switch (phoneNumberType) {
+                case 'home':
+                    typeClass += 'primary-button';
+                    break;
+                case 'cell':
+                    typeClass += 'primary-alt-button';
+                    break;
+                case 'work':
+                    typeClass += 'secondary-button';
+                    break;
+                default:
+                    typeClass += 'background-button';
+                    break;
+            }
+
+            return typeClass;
+        },
+
         getName: function () {
             return this.$root.selectedContact.name;
         },
@@ -49,7 +85,13 @@ Vue.component('contact-detail', {
         },
 
         getPhoneNumber1Type: function () {
-            return this.$root.selectedContact.phoneNumber1Type;
+            var phoneNumber1Type = this.$root.selectedContact.phoneNumber1Type;
+
+            if (phoneNumber1Type === undefined || phoneNumber1Type === null || phoneNumber1Type.length < 1) {
+                return 'none';
+            } else {
+                return phoneNumber1Type;
+            }
         },
 
         getPhoneNumber2: function () {
@@ -66,14 +108,14 @@ Vue.component('contact-detail', {
             var phoneNumber2Type = this.$root.selectedContact.phoneNumber2Type;
 
             if (phoneNumber2Type === undefined || phoneNumber2Type === null || phoneNumber2Type.length < 1) {
-                return 'NONE';
+                return 'none';
             } else {
                 return phoneNumber2Type;
             }
         },
 
         onEditClicked: function () {
-            this.$root.setView('m-contacts-edit');
+            this.$root.setView('editContact');
         },
 
         onDeleteClicked: function () {

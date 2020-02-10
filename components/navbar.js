@@ -43,6 +43,7 @@ Vue.component('navbar', {
         },
 
         onSettingsClicked: function () {
+            this.$root.removeSelectedContact();
             this.$root.setView('settings');
         },
 

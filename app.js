@@ -4,20 +4,24 @@ new Vue({
         mobile: null,
         username: null,
         currentView: 'login',
+        contactsView: 'contact-detail',
         contacts: [{
             id: 1,
-            name: 'John Doe',
-            address: '1234 Bob St.',
-            phoneNumber1: '123-456-7890',
-            phoneNumber2: '123-456-7890',
-            phoneNumber1Type: 'cell',
+            name: 'Carrie Ross',
+            address: '1952 Evergreen Lane',
+            phoneNumber1: '323-642-8871',
+            phoneNumber2: '260-468-4116',
+            phoneNumber1Type: 'home',
             phoneNumber2Type: 'cell'
         },
         {
             id: 2,
-            name: 'Abe Brownbro',
-            phoneNumber1: '123-456-7890',
-            phoneNumber1Type: 'cell'
+            name: 'Patrick Johnson',
+            address: '3161 Fowler Avenue',
+            phoneNumber1: '770-275-5325',
+            phoneNumber2: '870-333-5632',
+            phoneNumber1Type: 'home',
+            phoneNumber2Type: 'work'
         }],
         selectedContact:{
             id: null,
@@ -36,7 +40,19 @@ new Vue({
 
         setView: function (nextView) {
             if (nextView === 'contacts') {
-                this.currentView = this.mobile ? 'm-contact-list' : 'contacts';
+               if (this.mobile) {
+                   this.currentView = 'm-contact-list';
+                } else {
+                    this.currentView = 'contacts';
+                    this.contactsView = 'contact-detail';
+                }
+            } else if (nextView === 'editContact') {
+                if (this.mobile) {
+                    this.currentView = 'm-contacts-edit';
+                } else {
+                    this.currentView = 'contacts';
+                    this.contactsView = 'edit-contact';
+                }
             } else {
                 this.currentView = nextView;
             }
@@ -109,6 +125,10 @@ new Vue({
                 phoneNumber2: null,
                 phoneNumber2Type: null
             };
+        },
+
+        isContactSelected: function () {
+            return this.selectedContact.id === undefined || this.selectedContact.id === null;
         }
     }
 });

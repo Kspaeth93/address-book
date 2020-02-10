@@ -1,7 +1,7 @@
 Vue.component('edit-contact', {
     template:  `<div class="text text-light text-medium">
                     <div class="text-large spacing">
-                        New Contact
+                        Edit Contact
                     </div>
                     <div class="spacing">
                         Name<br>
@@ -134,6 +134,16 @@ Vue.component('edit-contact', {
 
             if (valid) {
                 if (this.id === undefined || this.id === null) {
+                    console.log({
+                        id: this.id,
+                        name: this.name,
+                        address: this.address,
+                        phoneNumber1: this.phoneNumber1,
+                        phoneNumber1Type: this.phoneNumber1Type,
+                        phoneNumber2: this.phoneNumber2,
+                        phoneNumber2Type: this.phoneNumber2Type
+                    });
+
                     this.$root.addContact({
                         id: this.id,
                         name: this.name,

@@ -60,12 +60,16 @@ Vue.component('settings-modal', {
                 newUsername.style.border = "none";
             }
 
-            if (valid) this.$root.username = this.newUsername;
+            if (valid) {
+                this.$root.username = this.newUsername;
+                this.$root.setView('contacts');
+            }
         },
 
         onSaveClicked: function () {
             var isMobileModeOn = this.$refs.mobileMode.checked;
             this.$root.setMobile(isMobileModeOn);
+            this.$root.setView('contacts');
         },
 
         onCancelClicked: function () {
