@@ -7,7 +7,7 @@ Vue.component('contacts', {
                 '            <contact-list></contact-list>' +
                 '        </div>' +
                 '        <div class="col-8">' +
-                '            <contact-detail class="ui-medium shadow"' +
+                '            <contact-detail class="ui-medium light-shadow"' +
                 '                            v-bind:name="getContactName()"' +
                 '                            v-bind:address="getContactAddress()"' +
                 '                            v-bind:phoneNumber1="getContactPhone1()"' +

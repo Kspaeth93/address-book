@@ -1,8 +1,13 @@
 Vue.component('m-contact-list', {
-    template:   '<div>' +
-                '    <navbar v-bind:username="$root.username"></navbar>' +
-                '    <div>Mobile Contact List</div>' +
-                '    <contact-toolbar></contact-toolbar>' +
-                '    <contact-list></contact-list>' +
-                '</div>'
+    template:  `<div>
+                    <navbar v-bind:username="$root.username"></navbar>
+                    <div class="row">
+                        <div class="col-12 ui-light light-shadow">
+                            <contact-toolbar></contact-toolbar>
+                        </div>
+                        <div class="col-12 ui-medium light-shadow">
+                            <contact-list></contact-list>
+                        </div>
+                    </div>
+                </div>`
 });

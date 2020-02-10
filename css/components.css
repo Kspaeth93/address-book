@@ -79,6 +79,51 @@
     color: #d5b4fd;
 }
 
+/* Radio Buttons */
+ .radio {
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .radio input {
+    opacity: 0;
+  }
+  
+  .radio-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #121212;
+    border: 1px solid #333333;
+    border-radius: 50%;
+  }
+  
+  .radio input:checked ~ .radio-button {
+    background-color: #bb86fc;
+  }
+  
+  .radio-button:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .radio input:checked ~ .radio-button:after {
+    display: block;
+  }
+  
+  .radio .radio-button:after {
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #262626;
+  } 
+
 /* Sliders */
 .switch {
     position: relative;

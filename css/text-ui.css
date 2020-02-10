@@ -57,7 +57,7 @@ body {
 }
 
 .ui-light {
-    background-color: #121212;
+    background-color: #333333;
 }
 
 .ui-medium {
@@ -65,13 +65,30 @@ body {
 }
 
 .ui-dark {
-    background-color: #333333;
+    background-color: #121212;
 }
 
-.shadow {
+.light-shadow {
     border: 1px solid #333333;
+}
+
+.medium-shadow {
+    border: 1px solid #262626;
+}
+
+.dark-shadow {
+    border: 1px solid #121212;
 }
 
 .spacing {
     margin: 10px;
+}
+
+.padding {
+    padding: 10px;
+}
+
+/* Custom */
+.contact-list-item:hover {
+    background-color: #bb86fc;
 }

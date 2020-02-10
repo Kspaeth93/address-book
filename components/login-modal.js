@@ -1,6 +1,6 @@
 Vue.component('login-modal', {
     template:   '<div class="row horizontal-align">' +
-                '    <div class="col-lg-4 col-md-6 col-sm-12 ui-medium shadow">' +
+                '    <div class="col-lg-4 col-md-6 col-sm-12 ui-medium light-shadow">' +
                 '        <div class="text text-light text-large">Contacts</div>' +
                 '        <form class="text text-light text-medium">' +
                 '            <div class="spacing">' +
