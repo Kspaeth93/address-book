@@ -86,6 +86,7 @@ Vue.component('contact-detail', {
 
         onBackClicked: function () {
             this.$root.setView('contacts');
+            this.$root.removeSelectedContact();
         }
     }
 });
