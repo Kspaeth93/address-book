@@ -1,9 +1,9 @@
 Vue.component('contact-detail', {
     template:  `<div>
-                    <div v-show="!$root.isContactSelected()"
+                    <div    v-show="!$root.isContactSelected()"
                             class="text text-light">
                         <div class="text-large padding">
-                            {{ getName() }}
+                            {{ $root.getSelectedContact().name }}
                         </div>
                         <div class="text-medium italic padding">
                             {{ getAddress() }}
@@ -13,7 +13,7 @@ Vue.component('contact-detail', {
                                     :class="getTypeClass(getPhoneNumber1Type())"
                                     type="button"
                                     disabled />
-                            {{ getPhoneNumber1() }}<br>
+                            {{ $root.getSelectedContact().phoneNumber1 }}<br>
                             <input  v-bind:value="getPhoneNumber2Type()"
                                     :class="getTypeClass(getPhoneNumber2Type())"
                                     type="button"
@@ -45,6 +45,46 @@ Vue.component('contact-detail', {
                     </div>
                 </div>`,
     methods: {
+        getAddress: function () {
+            var address = this.$root.getSelectedContact().address;
+
+            if (address === undefined || address === null || address.length < 1) {
+                return 'No Address';
+            } else {
+                return address;
+            }
+        },
+
+        getPhoneNumber1Type: function () {
+            var phoneNumber1Type = this.$root.getSelectedContact().phoneNumber1Type;
+
+            if (phoneNumber1Type === undefined || phoneNumber1Type === null || phoneNumber1Type.length < 1) {
+                return 'none';
+            } else {
+                return phoneNumber1Type;
+            }
+        },
+
+        getPhoneNumber2: function () {
+            var phoneNumber2 = this.$root.getSelectedContact().phoneNumber2;
+
+            if (phoneNumber2 === undefined || phoneNumber2 === null || phoneNumber2.length < 1) {
+                return 'No Secondary Phone';
+            } else {
+                return phoneNumber2;
+            }
+        },
+
+        getPhoneNumber2Type: function () {
+            var phoneNumber2Type = this.$root.getSelectedContact().phoneNumber2Type;
+
+            if (phoneNumber2Type === undefined || phoneNumber2Type === null || phoneNumber2Type.length < 1) {
+                return 'none';
+            } else {
+                return phoneNumber2Type;
+            }
+        },
+
         getTypeClass(phoneNumberType) {
             var typeClass = 'button small-button disabled-button ';
             
@@ -66,62 +106,14 @@ Vue.component('contact-detail', {
             return typeClass;
         },
 
-        getName: function () {
-            return this.$root.selectedContact.name;
-        },
-
-        getAddress: function () {
-            var address = this.$root.selectedContact.address;
-
-            if (address === undefined || address === null || address.length < 1) {
-                return 'No Address';
-            } else {
-                return address;
-            }
-        },
-
-        getPhoneNumber1: function () {
-            return this.$root.selectedContact.phoneNumber1;
-        },
-
-        getPhoneNumber1Type: function () {
-            var phoneNumber1Type = this.$root.selectedContact.phoneNumber1Type;
-
-            if (phoneNumber1Type === undefined || phoneNumber1Type === null || phoneNumber1Type.length < 1) {
-                return 'none';
-            } else {
-                return phoneNumber1Type;
-            }
-        },
-
-        getPhoneNumber2: function () {
-            var phoneNumber2 = this.$root.selectedContact.phoneNumber2;
-
-            if (phoneNumber2 === undefined || phoneNumber2 === null || phoneNumber2.length < 1) {
-                return 'No Secondary Phone';
-            } else {
-                return phoneNumber2;
-            }
-        },
-
-        getPhoneNumber2Type: function () {
-            var phoneNumber2Type = this.$root.selectedContact.phoneNumber2Type;
-
-            if (phoneNumber2Type === undefined || phoneNumber2Type === null || phoneNumber2Type.length < 1) {
-                return 'none';
-            } else {
-                return phoneNumber2Type;
-            }
-        },
-
         onEditClicked: function () {
             this.$root.setCurrentView('editContact');
         },
 
         onDeleteClicked: function () {
-            var contactId = this.$root.selectedContact.id;
-            console.log(contactId);
-            this.$root.deleteContactById(contactId);
+            var id = this.$root.getSelectedContact().id;
+            
+            this.$root.deleteContactById(id);
             this.$root.removeSelectedContact();
             this.$root.setCurrentView('contacts');
         },

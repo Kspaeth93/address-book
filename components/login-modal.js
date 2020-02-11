@@ -3,7 +3,7 @@ Vue.component('login-modal', {
                     <div class="text-large padding">Contacts</div>
                     <div class="padding">
                         Username<br>
-                        <input v-model="username"
+                        <input  v-model="username"
                                 id="username"
                                 type="text"
                                 name="username"
@@ -11,14 +11,14 @@ Vue.component('login-modal', {
                     </div>
                     <div class="padding">
                         Password<br>
-                        <input v-model="password"
+                        <input  v-model="password"
                                 id="password"
                                 type="password"
                                 name="password"
                                 class="input" />
                     </div>
                     <div class="padding">
-                        <input v-on:click="onLoginClicked"
+                        <input  v-on:click="onLoginClicked"
                                 type="button"
                                 value="Login"
                                 class="button large-button primary-button" />
@@ -33,9 +33,8 @@ Vue.component('login-modal', {
     methods: {
         onLoginClicked: function () {
             var valid = true;
-            var username = document.getElementById("username");
-            var password = document.getElementById("password");
 
+            var username = document.getElementById("username");
             if (this.username === null || this.username.length < 1) {
                 username.style.border = "1px solid #cf6679";
                 valid = false;
@@ -43,6 +42,7 @@ Vue.component('login-modal', {
                 username.style.border = "none";
             }
             
+            var password = document.getElementById("password");
             if (this.password === null || this.password.length < 1) {
                 password.style.border = "1px solid #cf6679";
                 valid = false;

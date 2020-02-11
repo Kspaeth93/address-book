@@ -3,7 +3,7 @@ Vue.component('settings-modal', {
                     <div class="text text-light text-large">Settings</div>
                     <div class="padding">
                         Current Username<br>
-                        <input v-bind:value="$root.username"
+                        <input  v-bind:value="$root.username"
                                 type="text"
                                 name="current-username"
                                 class="input input-disabled"
@@ -11,14 +11,14 @@ Vue.component('settings-modal', {
                     </div>
                     <div class="padding">
                         New Username<br>
-                        <input v-model="newUsername"
+                        <input  v-model="newUsername"
                                 id="newUsername"
                                 type="text"
                                 name="new-username"
                                 class="input" />
                     </div>
                     <div class="padding">
-                        <input v-on:click="onSaveUsernameClicked"
+                        <input  v-on:click="onSaveUsernameClicked"
                                 type="button"
                                 value="Save Username"
                                 class="button large-button primary-button" /><br>
@@ -26,20 +26,20 @@ Vue.component('settings-modal', {
                     <div class="mobile-mode padding">
                         Mobile Mode
                         <label class="slider">
-                            <input ref="mobileMode"
+                            <input  ref="mobileMode"
                                     v-bind:checked="$root.mobile"
                                     type="checkbox" />
                             <span class="slider-button"></span>
                         </label>
                     </div>
                     <div class="padding">
-                        <input v-on:click="onSaveClicked"
+                        <input  v-on:click="onSaveClicked"
                                 type="button"
                                 value="Save Changes"
                                 class="button large-button primary-button" /><br>
                     </div>
                     <div class="padding">
-                        <input v-on:click="onCancelClicked"
+                        <input  v-on:click="onCancelClicked"
                                 type="button"
                                 value="Cancel"
                                 class="button large-button secondary-button" />
@@ -53,8 +53,8 @@ Vue.component('settings-modal', {
     methods: {
         onSaveUsernameClicked: function () {
             var valid = true;
+            
             var newUsername = document.getElementById('newUsername');
-
             if (this.newUsername === null || this.newUsername.length < 1) {
                 newUsername.style.border = "1px solid #cf6679";
                 valid = false;
@@ -63,14 +63,14 @@ Vue.component('settings-modal', {
             }
 
             if (valid) {
-                this.$root.username = this.newUsername;
+                this.$root.setUsername(this.newUsername);
                 this.$root.setCurrentView('contacts');
             }
         },
 
         onSaveClicked: function () {
-            var isMobileModeOn = this.$refs.mobileMode.checked;
-            this.$root.setMobile(isMobileModeOn);
+            var isMobile = this.$refs.mobileMode.checked;
+            this.$root.setMobile(isMobile);
             this.$root.setCurrentView('contacts');
         },
 

@@ -1,5 +1,5 @@
 Vue.component('navbar', {
-    template:   `<div>
+    template:  `<div>
                     <input  v-show="showUsername()"
                             v-bind:value="username"
                             class="button small-button background-button left"

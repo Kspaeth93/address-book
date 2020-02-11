@@ -6,7 +6,8 @@ Vue.component('contact-list', {
                                         v-bind:phoneNumber="contact.phoneNumber"
                                         v-bind:key="contact.id" class="light-shadow contact-list-item">
                     </contact-list-item>
-                    <div class="ui-medium text text-light text-large" v-show="$root.contacts.length < 1">
+                    <div    v-show="$root.contacts.length < 1"
+                            class="ui-medium text text-light text-large">
                         No Contacts :(
                     </div>
                 </div>`

@@ -1,4 +1,4 @@
-Vue.component('m-contact-list', {
+Vue.component('m-contacts-list', {
     template:  `<div>
                     <div class="row navbar">
                         <div class="col-12 ui-medium light-shadow">

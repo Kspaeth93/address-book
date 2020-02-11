@@ -109,14 +109,21 @@ Vue.component('edit-contact', {
     },
     methods: {
         onCancelClicked: function () {
+            var id = this.id;
+            var contact = null;
+
+            if (id !== undefined && id !== null) {
+                contact = this.$root.getContactById(id);
+            }
+            
             this.$root.setCurrentView('contacts');
-            this.$root.removeSelectedContact();
+            if (contact) this.$root.setSelectedContact(contact);
         },
 
         onSaveClicked: function () {
-            valid = true;
-
-            console.log(this.phoneNumber2Type);
+            var valid = true;
+            var id = this.id;
+            var contact = null;
 
             var name = this.$refs.name;
             if (name.value.length < 1) {
@@ -136,16 +143,6 @@ Vue.component('edit-contact', {
 
             if (valid) {
                 if (this.id === undefined || this.id === null) {
-                    console.log({
-                        id: this.id,
-                        name: this.name,
-                        address: this.address,
-                        phoneNumber1: this.phoneNumber1,
-                        phoneNumber1Type: this.phoneNumber1Type,
-                        phoneNumber2: this.phoneNumber2,
-                        phoneNumber2Type: this.phoneNumber2Type
-                    });
-
                     this.$root.addContact({
                         id: this.id,
                         name: this.name,
@@ -167,7 +164,12 @@ Vue.component('edit-contact', {
                     });
                 }
 
+                if (id !== undefined && id !== null) {
+                    contact = this.$root.getContactById(id);
+                }
+
                 this.$root.setCurrentView('contacts');
+                if (contact) this.$root.setSelectedContact(contact);
             }
 
         }

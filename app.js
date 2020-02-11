@@ -55,22 +55,42 @@ new Vue({
         },
 
         setCurrentView: function (nextView) {
-            if (nextView === 'contacts') {
-               if (this.mobile) {
-                   this.currentView = 'm-contact-list';
-                } else {
-                    this.currentView = 'contacts';
-                    this.contactsView = 'contact-detail';
-                }
-            } else if (nextView === 'editContact') {
-                if (this.mobile) {
-                    this.currentView = 'm-contacts-edit';
-                } else {
-                    this.currentView = 'contacts';
-                    this.contactsView = 'edit-contact';
-                }
-            } else {
-                this.currentView = nextView;
+            switch (nextView) {
+                case 'contacts':
+                    if (this.mobile) {
+                        this.currentView = 'm-contacts-list';
+                    } else {
+                        var contacts = this.getContacts();
+                        if (contacts.length > 0) {
+                            this.setSelectedContact(contacts[0]);
+                        }
+
+                         this.currentView = 'contacts';
+                         this.contactsView = 'contact-detail';
+                    }
+                    break;
+
+                case 'editContact':
+                    if (this.mobile) {
+                        this.currentView = 'm-contacts-edit';
+                    } else {
+                        this.currentView = 'contacts';
+                        this.contactsView = 'edit-contact';
+                    }
+                    break;
+
+                case 'contactDetails':
+                    if (this.mobile) {
+                        this.currentView ='m-contacts-details';
+                    } else {
+                        this.currentView = 'contacts';
+                        this.contactsView = 'contact-detail';
+                    }
+                    break;
+
+                default:
+                    this.currentView = nextView;
+                    break;
             }
         },
 
@@ -86,7 +106,6 @@ new Vue({
             /* Works as a quick and dirty id */
             contact.id = new Date().getTime();
             this.contacts.push(contact);
-            this.removeSelectedContact();
         },
 
         getContacts: function () {
