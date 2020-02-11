@@ -1,31 +1,29 @@
 Vue.component('login-modal', {
-    template:   '<div class="row horizontal-align">' +
-                '    <div class="col-lg-4 col-md-6 col-sm-12 ui-medium light-shadow">' +
-                '        <div class="text text-light text-large">Contacts</div>' +
-                '        <form class="text text-light text-medium">' +
-                '            <div class="spacing">' +
-                '                Username<br>' +
-                '                <input v-model="username"' +
-                '                       id="username"' +
-                '                       type="text"' +
-                '                       name="username"' +
-                '                       class="input" />' +
-                '            </div>' +
-                '            <div class="spacing">' +
-                '                Password<br>' +
-                '                <input v-model="password"' +
-                '                       id="password"' +
-                '                       type="password"' +
-                '                       name="password"' +
-                '                       class="input" />' +
-                '            </div>' +
-                '            <input v-on:click="onLoginClicked"' +
-                '                   type="button"' +
-                '                   value="Login"' +
-                '                   class="button large-button primary-button spacing" />' +
-                '        </form>' +
-                '    </div>' +
-                '</div>',
+    template:  `<div class="text text-light text-medium">
+                    <div class="text-large padding">Contacts</div>
+                    <div class="padding">
+                        Username<br>
+                        <input v-model="username"
+                                id="username"
+                                type="text"
+                                name="username"
+                                class="input" />
+                    </div>
+                    <div class="padding">
+                        Password<br>
+                        <input v-model="password"
+                                id="password"
+                                type="password"
+                                name="password"
+                                class="input" />
+                    </div>
+                    <div class="padding">
+                        <input v-on:click="onLoginClicked"
+                                type="button"
+                                value="Login"
+                                class="button large-button primary-button" />
+                    </div>
+                </div>`,
     data: function () {
         return {
             username: null,

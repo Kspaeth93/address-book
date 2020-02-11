@@ -32,7 +32,11 @@
     font-style: italic;
 }
 
-/* Other */
+/* UI */
+body {
+    background-color: #121212;
+}
+
 .left {
     float: left;
 }
@@ -41,19 +45,12 @@
     float: right;
 }
 
-.horizontal-align {
-    display: flex;
-    justify-content: center;
+.margin {
+    margin: 10px;
 }
 
-.vertical-align {
-    display: flex;
-    align-items: center;
-}
-
-/* UI */
-body {
-    background-color: #121212;
+.padding {
+    padding: 10px;
 }
 
 .ui-light {
@@ -78,17 +75,4 @@ body {
 
 .dark-shadow {
     border: 1px solid #121212;
-}
-
-.spacing {
-    margin: 10px;
-}
-
-.padding {
-    padding: 10px;
-}
-
-/* Custom */
-.contact-list-item:hover {
-    background-color: #d5b4fd !important;
 }

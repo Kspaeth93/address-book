@@ -34,11 +34,27 @@ new Vue({
         }
     },
     methods: {
-        getView: function () {
+        getMobile: function () {
+            return this.mobile;
+        },
+
+        setMobile: function (isMobile) {
+            this.mobile = isMobile;
+        },
+
+        getUsername: function () {
+            return this.username;
+        },
+
+        setUsername: function (newUsername) {
+            this.username = newUsername;
+        },
+
+        getCurrentView: function () {
             return this.currentView;
         },
 
-        setView: function (nextView) {
+        setCurrentView: function (nextView) {
             if (nextView === 'contacts') {
                if (this.mobile) {
                    this.currentView = 'm-contact-list';
@@ -58,28 +74,36 @@ new Vue({
             }
         },
 
-        setMobile: function (newOption) {
-            this.mobile = newOption;
+        getContactsView: function () {
+            return this.contactsView;
         },
 
-        processLogin: function (username) {
-            this.mobile = window.innerWidth < 768 ? true : false;
-            this.username = username;
-            
-            this.setView('contacts');
+        setContactsView: function (nextView) {
+            this.contactsView = nextView;
         },
 
         addContact: function (contact) {
+            /* Works as a quick and dirty id */
             contact.id = new Date().getTime();
             this.contacts.push(contact);
             this.removeSelectedContact();
         },
 
+        getContacts: function () {
+            return this.contacts;
+        },
+
+        getContactById: function (id) {
+            for (var i = 0; i < this.contacts.length; i++) {
+                if (this.contacts[i].id === id) {
+                    return this.contacts[i];
+                }
+            }
+        },
+
         updateContact: function (contact) {
-            console.log(contact);
             for (var i = 0; i < this.contacts.length; i++) {
                 if (this.contacts[i].id === contact.id) {
-                    console.log('a');
                     this.contacts[i].name = contact.name;
                     this.contacts[i].address = contact.address;
                     this.contacts[i].phoneNumber1 = contact.phoneNumber1;
@@ -91,28 +115,32 @@ new Vue({
             this.removeSelectedContact();
         },
 
-        getContactById: function (id) {
-            for (var i = 0; i < this.contacts.length; i++) {
-                if (this.contacts[i].id === id) {
-                    return this.contacts[i];
+        deleteContactById: function (id) {
+            if (this.contacts.length === 1) {
+                this.contacts = [];
+            } else {
+                for (var i = 0; i < this.contacts.length; i++) {
+                    if (this.contacts[i].id === id) {
+                        this.contacts.splice(i, 1);
+                    }
                 }
             }
         },
 
-        deleteContactById: function (id) {
-            if (this.contacts.length === 1) {
-                this.contacts = [];
-            }
-            
-            for (var i = 0; i < this.contacts.length; i++) {
-                if (this.contacts[i].id === id) {
-                    this.contacts.splice(i, 1);
-                }
-            }
+        deleteContacts: function () {
+            this.contacts = [];
+        },
+
+        getSelectedContact: function () {
+            return this.selectedContact;
         },
 
         setSelectedContact: function (contact) {
             this.selectedContact = contact;
+        },
+
+        isContactSelected: function () {
+            return this.selectedContact.id === undefined || this.selectedContact.id === null;
         },
 
         removeSelectedContact: function () {
@@ -127,8 +155,11 @@ new Vue({
             };
         },
 
-        isContactSelected: function () {
-            return this.selectedContact.id === undefined || this.selectedContact.id === null;
+        processLogin: function (username) {
+            /* Only set once on login */
+            this.mobile = window.innerWidth < 768 ? true : false;
+            this.username = username;
+            this.setCurrentView('contacts');
         }
     }
 });

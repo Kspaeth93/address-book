@@ -8,7 +8,7 @@ Vue.component('contact-toolbar', {
     methods: {
         onNewContactClicked: function () {
             this.$root.removeSelectedContact();
-            this.$root.setView('editContact');
+            this.$root.setCurrentView('editContact');
         }
     }
 });

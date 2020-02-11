@@ -19,7 +19,7 @@ Vue.component('contact-list-item', {
             
             this.$root.setSelectedContact(contact);
 
-            this.$root.mobile === true ? this.$root.setView('m-contact-details') : this.$root.contactsView = 'contact-detail';
+            this.$root.mobile === true ? this.$root.setCurrentView('m-contact-details') : this.$root.contactsView = 'contact-detail';
         }
     }
 });

@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
-    <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/grid-system.css" />
+    <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/text-ui.css" />
+    <link rel="stylesheet" href="css/custom.css" />
 </head>
 
 <body>
     <div id="app">
-        <component ref="currentView" v-bind:is="currentView"></component>
+        <component v-bind:is="currentView"></component>
     </div>
 </body>
 

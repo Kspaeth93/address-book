@@ -1,29 +1,29 @@
 Vue.component('edit-contact', {
     template:  `<div class="text text-light text-medium">
-                    <div class="text-large spacing">
+                    <div class="text-large padding">
                         Edit Contact
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         Name<br>
                         <input  v-model="name"
                                 ref="name"
                                 class="input"
                                 type="text" />
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         Address<br>
                         <input  v-model="address"
                                 class="input"
                                 type="text" />
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         Phone Number 1<br>
                         <input  v-model="phoneNumber1"
                                 ref="phoneNumber1"
                                 class="input"
                                 type="text" />
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         Phone Number 1 Type<br>
                         <span class="text-small">Home</span>
                         <label class="radio">
@@ -50,13 +50,13 @@ Vue.component('edit-contact', {
                             <span class="radio-button"></span>
                         </label>
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         Phone Number 2<br>
                         <input  v-model="phoneNumber2"
                                 class="input"
                                 type="text" />
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         Phone Number 2 Type<br>
                         <span class="text-small">Home</span>
                         <label class="radio">
@@ -83,15 +83,17 @@ Vue.component('edit-contact', {
                             <span class="radio-button"></span>
                         </label>
                     </div>
-                    <div class="spacing">
+                    <div class="padding">
                         <input  v-on:click="onSaveClicked"
                                 type="button"
                                 value="Save Changes"
-                                class="button large-button primary-button spacing" /><br>
+                                class="button large-button primary-button" />
+                    </div>
+                    <div class="padding">
                         <input  v-on:click="onCancelClicked"
                                 type="button"
                                 value="Cancel"
-                                class="button large-button secondary-button spacing" />
+                                class="button large-button secondary-button" />
                     </div>
                 </div>`,
     data: function () {
@@ -107,7 +109,7 @@ Vue.component('edit-contact', {
     },
     methods: {
         onCancelClicked: function () {
-            this.$root.setView('contacts');
+            this.$root.setCurrentView('contacts');
             this.$root.removeSelectedContact();
         },
 
@@ -165,7 +167,7 @@ Vue.component('edit-contact', {
                     });
                 }
 
-                this.$root.setView('contacts');
+                this.$root.setCurrentView('contacts');
             }
 
         }

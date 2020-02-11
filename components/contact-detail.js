@@ -2,13 +2,13 @@ Vue.component('contact-detail', {
     template:  `<div>
                     <div v-show="!$root.isContactSelected()"
                             class="text text-light">
-                        <div class="text-large spacing">
+                        <div class="text-large padding">
                             {{ getName() }}
                         </div>
-                        <div class="text-medium italic spacing">
+                        <div class="text-medium italic padding">
                             {{ getAddress() }}
                         </div>
-                        <div class="text-medium spacing">
+                        <div class="text-medium padding">
                             <input  v-bind:value="getPhoneNumber1Type()"
                                     :class="getTypeClass(getPhoneNumber1Type())"
                                     type="button"
@@ -20,19 +20,19 @@ Vue.component('contact-detail', {
                                     disabled />
                             {{ getPhoneNumber2() }}<br>
                         </div>
-                        <div class="spacing">
+                        <div class="padding">
                             <input  v-on:click="onEditClicked"
                                     type="button"
                                     value="Edit"
                                     class="button large-button primary-button" />
                         </div>
-                        <div class="spacing">
+                        <div class="padding">
                             <input  v-on:click="onDeleteClicked"
                                     type="button"
                                     value="Delete"
                                     class="button large-button error-button" />
                         </div>
-                        <div class="spacing">
+                        <div class="padding">
                             <input  v-on:click="onBackClicked"
                                     type="button"
                                     value="Back"
@@ -115,7 +115,7 @@ Vue.component('contact-detail', {
         },
 
         onEditClicked: function () {
-            this.$root.setView('editContact');
+            this.$root.setCurrentView('editContact');
         },
 
         onDeleteClicked: function () {
@@ -123,11 +123,11 @@ Vue.component('contact-detail', {
             console.log(contactId);
             this.$root.deleteContactById(contactId);
             this.$root.removeSelectedContact();
-            this.$root.setView('contacts');
+            this.$root.setCurrentView('contacts');
         },
 
         onBackClicked: function () {
-            this.$root.setView('contacts');
+            this.$root.setCurrentView('contacts');
             this.$root.removeSelectedContact();
         }
     }
