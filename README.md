@@ -1,4 +1,5 @@
 # Contacts
+## https://kspaeth93.github.io/contacts/
 ## Introduction
 This is a simple contacts, or address book, style of application written using Vue.js. It was created as part of a coding assessment, but has also served as a great learning experience. Below are some notes about the application such as features, hindsights and known issues. Currently there is no license associated with this program or it's source code - feel free to use it however you'd like.
 ## Views & Features
@@ -29,3 +30,4 @@ The next things that I'd like to do with this application are...
   * My approach to using $root as in impromptu controller worked well - for a small application. However, using $root in this way felt wrong and I know its not a scalable design.
 ## Known Issues
 * When editing a contact on desktop, if you click the new contact button, the edit contact form is not properly cleared.
+* Certain UI elements such as buttons are not colored correctly when viewed on iPhone.
